@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include ('../partials/_header') %> 
+   <div class="row">
+  </div>
+
+      <!-- end header inner -->
+      <!-- end header -->
+      <% if (user.role == 'admin') { %>
+        <%- include ('./admin') %> 
+      <% } else if (user.role == 'student') { %>
+        <%- include ('./student') %> 
+      <% } else if (user.role == 'trainer') { %> 
+      <%- include ('./trainer') %>
+      <% } %> 
+    
+      <!-- end trainers -->
+      <!--  footer -->
+      <%- include ('../partials/_footer') %>
+      <!-- end footer -->
+      <!-- Javascript files-->
+   </body>
+</html>

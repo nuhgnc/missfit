@@ -1,0 +1,79 @@
+<div class="back_re">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="title">
+             <h2>Admin Page</h2>
+             <h3 style="color: whitesmoke; padding-bottom: 20px ;"><%- user.role %></h3>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- trainers -->
+<div class="tablolar">
+  <div class="admin-table">
+    <table class="table category table-sm table-hover">
+       <button class="trainer_ekle_btn">Eğitmen Ekle</button>
+      <span style="font-weight:bold ;">Eğitmenler</span>
+        <thead>
+          <tr>
+            <th  scope="col">ID</th>
+            <th style="text-align: left;" scope="col">Aksiyon</th>
+            <th scope="col">AD</th>
+            <th scope="col">ROL</th>
+            <th scope="col">E-MAİL</th>
+            <th scope="col">DERS SAYISI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% AllUser.forEach(user => { %>
+            <tr>
+              <td> <%- user._id %> </td>
+              <td><button class="btn  btn-primary">Düzenle</button> <a id="deleteHref" onclick="confirmDeleteUSer('<%- user.name %>','<%- user._id %>')" href="#" class="btn  btn-danger">Sil</a></td>
+              <td><%- user.name  %> </td>
+              <td><%- user.role %> </td>
+              <td><%- user.email  %> </td>
+              <td>@mdo</td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+  </div>
+
+  <script>
+    const confirmDeleteUSer = (name,id) => {
+      let root = `/user/${id}?_method=DELETE`
+      let method = '?_method=DELETE'
+      let deleteHref = document.getElementById('deleteHref').href
+      location.href = root
+      
+    }
+
+    document.getElementById("deleteHref")
+            .onclick = function(){
+                window.setTimeout(function(){location.href = 'https://www.tasarimkodlama.com';}, 1500);                        
+             };
+  </script>
+  
+  <div class="category_table">
+    <table class="table category table-sm table-hover">
+      <button class="kategori_ekle_btn">Kategori Ekle</button>
+       <thead>
+         <tr>
+           <th scope="col">ID</th>
+           <th scope="col">Kategori Adı</th>
+           <th scope="col">DERS SAYISI</th>
+         </tr>
+       </thead>
+       <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>Mark</td>
+            <td>Otto</td>
+          </tr>
+         
+       </tbody>
+     </table>
+  </div>
+</div>
